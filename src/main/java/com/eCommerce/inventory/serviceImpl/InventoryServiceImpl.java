@@ -29,19 +29,11 @@ public class InventoryServiceImpl implements InventoryService {
 		return inventoryCRUDRepository.findAll();
 	}
 
-	public int getQuantityById(int productID) {
-		if (productID <= 0)
-			return 0;
-		else
-			return inventoryCRUDRepository.findById(productID).get().getQuantity();
+	public Inventory getInventoryById(int productID) {
+		
+			return inventoryCRUDRepository.findById(productID).get();
 	}
 
-	public String getSupplierDetailsById(int productID) {
-		if (productID <= 0)
-			return "Please enter the valid product Id";
-		else
-			return inventoryCRUDRepository.findById(productID).get().getSupplierDetails();
-	}
 
 	public String deleteProductByID(String productID) {
 

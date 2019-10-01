@@ -34,18 +34,13 @@ public class InventoryController {
 		return inventoryServiceImpl.getAllInventoryDetails();
 	}
 
-	@GetMapping(value = "/getQuantityById")
-	public int getQuantityById(@RequestParam String productID) {
-		return inventoryServiceImpl.getQuantityById(Integer.parseInt(productID));
+	@GetMapping(value = "/getInventoryById")
+	public Inventory getInventoryById(@RequestParam String productID) {
+		return inventoryServiceImpl.getInventoryById(Integer.parseInt(productID));
 	}
 
-	@GetMapping(value = "/getSupplierDetailsById")
-	public String getSupplierDetailsById(@RequestParam String productID) {
-		return inventoryServiceImpl.getSupplierDetailsById(Integer.parseInt(productID));
-	}
-
-	@DeleteMapping(value = "/deleteByProductID", consumes = "application/json", produces = "application/json")
-	public String removeStudent(@RequestParam String productID) {
+	@DeleteMapping(value = "/deleteByProductID", produces = "application/json")
+	public String removeInventory(@RequestParam String productID) {
 		return inventoryServiceImpl.deleteProductByID(productID);
 	}
 
@@ -55,7 +50,7 @@ public class InventoryController {
 	}
 
 	@PostMapping(value = "/createInventory", consumes = "application/json", produces = "application/json")
-	public Inventory createPrice(@RequestBody Inventory inventory) {
+	public Inventory createInventory(@RequestBody Inventory inventory) {
 		return inventoryServiceImpl.saveNewInventory(inventory);
 	}
 

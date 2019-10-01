@@ -14,8 +14,7 @@ import com.eCommerce.inventory.model.Inventory;
 public interface InventoryService {
 
 	public List<Inventory> getAllInventoryDetails();
-	public int getQuantityById(int productID);
-	public String getSupplierDetailsById(int productID);
+	public Inventory getInventoryById(int productID);
 	public String deleteProductByID(String productID);
 	public Inventory updateInventoryDetails(Inventory inventory);
 	public Inventory saveNewInventory(Inventory inventory);
